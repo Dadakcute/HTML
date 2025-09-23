@@ -3,15 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro - Torre Encantada</title>
 </head>
 <body>
-    <a href="index2.html">voltar para index</a>
+    <!-- Link para voltar à página inicial -->
+    <a href="index2.html">🏰 Voltar para Início</a>
 
+    <!-- Título do formulário -->
+    <h1>🌟 Suba sua torre conosco! 🌟</h1>
 
+    <!-- Texto introdutório mágico -->
+    <p>🌸 Cadastre-se e descubra os segredos mágicos para cabelos longos e saudáveis. Junte-se à nossa torre encantada e receba novidades diretamente do reino! 💌</p>
 
+    <!-- Formulário de cadastro -->
+    <form action="#" method="post">
+        <!-- Campo para nome completo -->
+        <label for="name">Seu nome encantado:</label>
+        <input type="text" id="name" name="name" placeholder="Ex: Rapunzel da Floresta" required>
+        <br><br>
 
+        <!-- Campo para e-mail -->
+        <label for="email">Correio das flores:</label>
+        <input type="email" id="email" name="email" placeholder="Ex: rapunzel@torreencantada.com" required>
+        <br><br>
 
+        <!-- Campo para telefone -->
+        <label for="phone">Espelho mágico para contato:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Ex: (11) 99999-9999" required>
+        <br><br>
 
+        <!-- Campo para data de nascimento -->
+        <label for="birthdate">Data de nascimento:</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+        <br><br>
+
+        <!-- Campo de seleção para tipo de cabelo -->
+        <label for="hairtype">Tipo de cabelo:</label>
+        <select id="hairtype" name="hairtype" required>
+            <option value="" disabled selected>Escolha seu tipo de cabelo</option>
+            <option value="liso">Liso</option>
+            <option value="ondulado">Ondulado</option>
+            <option value="cacheado">Cacheado</option>
+            <option value="crespo">Crespo</option>
+        </select>
+        <br><br>
+
+        <!-- Checkbox para aceitar receber mensagens mágicas -->
+        <label>
+            <input type="checkbox" name="newsletter" required>
+            💌 Quero receber mensagens mágicas e encantadas!
+        </label>
+        <br><br>
+
+        <!-- Botão para enviar o formulário -->
+        <button type="submit">✨ Entrar na torre ✨</button>
+    </form>
+
+    <!-- Link para login -->
+    <p>Já é uma princesa cadastrada? <a href="login.html">Acesse seu espelho mágico</a>.</p>
 </body>
 </html>
