@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torre Encantada - Produtos Rapunzel</title>
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS interno -->
+    <style>
+        /* === CSS INTERNO === */
+        h1, h2, h3 {
+            font-family: 'Georgia', serif;
+            color: #702963;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: #d76da2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #b15385;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="font-style: italic;">🌸 Torre Encantada 🌸</h1>
+    </header>
+
+    <!-- Menu (dinâmico via CSS) -->
+    <nav>
+        <ul>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="curriculo2.html">Currículo</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Aside lateral -->
+        <aside>
+            <h3>Dicas de Cuidado Capilar</h3>
+            <ul>
+                <li>Use produtos naturais.</li>
+                <li>Evite calor em excesso.</li>
+                <li>Faça hidratação semanal.</li>
+                <li>Alimente-se bem para fortalecer os fios.</li>
+            </ul>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <div id="content">
+            <section id="hero">
+                <h2>Bem-vindo à Torre Encantada</h2>
+                <p>Descubra os segredos para cabelos longos e saudáveis, inspirados na magia de Rapunzel.</p>
+                <img src="https://via.placeholder.com/800x400" alt="Imagem mágica de cabelos longos">
+            </section>
+
+            <section id="about">
+                <h2>Sobre Nós</h2>
+                <p>Na Torre Encantada, acreditamos que cada cabelo conta uma história. Inspirados no conto de Rapunzel, criamos produtos naturais e encantadores para cuidar dos seus fios com amor e magia.</p>
+            </section>
+
+            <section id="products">
+                <h2>Nossos Produtos</h2>
+                <ul>
+                    <li>Shampoo Encantado</li>
+                    <li>Condicionador Mágico</li>
+                    <li>Máscara de Hidratação Natural</li>
+                    <li>Óleo Capilar da Floresta</li>
+                </ul>
+                <img src="https://via.placeholder.com/400x200" alt="Imagem de produtos para cabelo">
+            </section>
+
+            <section id="testimonials">
+                <h2>Depoimentos</h2>
+                <p>"Meus cabelos nunca estiveram tão saudáveis e brilhantes! Obrigada, Torre Encantada!" - <strong>Ana</strong></p>
+                <p>"Os produtos são incríveis e realmente fazem a diferença. Recomendo!" - <strong>João</strong></p>
+            </section>
+
+            <section id="contact">
+                <h2>Entre em Contato</h2>
+                <form action="#" method="post">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required><br><br>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                    <button type="submit" style="font-size: 1em;">Enviar</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <h3>Siga-nos</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+            <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+            <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+        </ul>
+        <p>&copy; 2025 Torre Encantada - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+/* === CSS EXTERNO === */
+body {
+    background: linear-gradient(to bottom, #fff5fa, #ffeef9);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4a2c2a;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #d76da2;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.8em;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px #5c2b4f;
+}
+
+nav {
+    background-color: #f2b8d5;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    position: relative;
+}
+
+nav a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #4a2c2a;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Menu dinâmico (hover e animação) */
+nav a:hover {
+    background-color: #d76da2;
+    color: #fff;
+    border-radius: 8px;
+    transform: scale(1.05);
+}
+
+/* Layout principal */
+main {
+    display: flex;
+    padding: 20px;
+}
+
+aside {
+    width: 25%;
+    background-color: #fde3ef;
+    padding: 15px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+section {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+footer {
+    background-color: #d76da2;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+footer a {
+    color: white;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
