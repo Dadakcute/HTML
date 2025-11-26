@@ -1,0 +1,8 @@
+nota = float(input("Digite a nota do aluno:\n"))
+peso1 = float(input("Digite o peso da nota:\n"))
+nota2 = float(input("Digite a segunda nota do aluno:\n"))
+peso2 = float(input("Digite o peso da segunda nota:\n"))
+nota3 = float(input("Digite a terceira nota do aluno:\n"))
+peso3 = float(input("Digite o peso da terceira nota:\n"))
+media = (nota*peso1 + nota2*peso2 + nota3*peso3)/(peso1+peso2+peso3)
+print(f"A média ponderada do aluno é: {media}")
