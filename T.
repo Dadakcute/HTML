@@ -4,10 +4,58 @@ import random
 # DICIONÁRIO DE REGRAS
 # ---------------------------
 regras = {
-    "olá": ["Olá! Como posso ajudar?", "Oi! Tudo bem?"],
-    "preço": ["Os preços variam conforme o produto.", "Temos opções a partir de R$10."],
-    "horário": ["Funcionamos das 8h às 18h.", "Estamos abertos de segunda a sábado!"],
-    "ajuda": ["Claro! Em que posso ajudar?"]
+    # SAUDAÇÕES
+    "olá": ["Olá! Como posso ajudar?", "Oi! Tudo bem por aí?"],
+    "oi": ["Oi! Como posso ajudar?", "Olá!"],
+    "bom dia": ["Bom dia! 😊", "Bom dia! Como vai?"],
+    "boa tarde": ["Boa tarde! 😃", "Boa tarde! Tudo certo?"],
+    "boa noite": ["Boa noite! 🌙", "Boa noite! Precisando de algo?"],
+
+    # DESPEDIDAS
+    "tchau": ["Até mais! 👋", "Tchau! Volte sempre!"],
+    "até logo": ["Até logo!", "Volte sempre!"],
+    "valeu": ["Valeu! Qualquer coisa tô por aqui!", "Tamo junto!"],
+
+    # INFORMAÇÕES
+    "preço": ["Nossos preços variam por produto. Quer algo específico?", 
+              "Temos opções a partir de R$10."],
+    "horário": ["Funcionamos das 8h às 18h, de segunda a sábado.", 
+                "Estamos abertos das 8 às 18!"],
+    "endereço": ["Estamos localizados no centro da cidade.", 
+                 "Nossa loja fica próximo à praça principal!"],
+    "pagamento": ["Aceitamos PIX, cartão e dinheiro.", 
+                  "Pode pagar com PIX, crédito ou débito."],
+    "entrega": ["Fazemos entregas na região!", 
+                "Sim, entregamos! Qual o seu endereço?"],
+
+    # SUPORTE / AJUDA
+    "ajuda": ["Claro! O que você precisa?", "Pode falar, estou aqui para ajudar!"],
+    "erro": ["Hmm… parece que houve um erro. Pode me explicar melhor?", 
+             "Ops! Vamos resolver isso juntos."],
+    "não funciona": ["Entendi! Pode me dizer exatamente o que aconteceu?", 
+                     "Ok, vamos descobrir o problema."],
+
+    # HUMOR
+    "piada": ["Por que o livro foi ao médico? Porque ele estava com muitas histórias! 😂",
+              "O que o zero disse para o oito? Belo cinto! 😆"],
+    "engraçado": ["Hahaha 😄", "😂😂😂"],
+
+    # RECLAMAÇÕES
+    "reclamar": ["Sinto muito por isso. Pode me dizer o que aconteceu?",
+                 "Vamos tentar resolver! Me explique melhor."],
+    "ruim": ["Poxa… me conte o que não gostou.", 
+             "Vamos melhorar! O que aconteceu?"],
+
+    # SENTIMENTOS
+    "triste": ["Sinto muito que esteja assim 😔. Quer conversar?", 
+               "Se quiser desabafar, estou aqui."],
+    "feliz": ["Que bom! Fico feliz também 😄", 
+              "Adoro boas notícias!"],
+
+    # OUTROS
+    "nome": ["Eu sou um chatbot simples, mas prometo ajudar! 😊"],
+    "quem é você": ["Sou um chatbot baseado em regras!"],
+    "obrigado": ["De nada! 😊", "Sempre à disposição!"],
 }
 
 
