@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 
 # ---------------------------
 # DICIONÁRIO DE REGRAS
@@ -17,10 +18,13 @@ regras = {
     "valeu": ["Valeu! Qualquer coisa tô por aqui!", "Tamo junto!"],
 
     # INFORMAÇÕES
+    # ---- AQUI TROCAMOS O 'horário' ----
+    "hora": ["Vou ver aqui...", "Claro! Olhando agora..."],
+    "horas": ["Vou ver aqui...", "Claro! Olhando agora..."],
+    "que horas são": ["Um momento, verificando...", "Deixa eu ver..."],
+
     "preço": ["Nossos preços variam por produto. Quer algo específico?", 
               "Temos opções a partir de R$10."],
-    "horário": ["Funcionamos das 8h às 18h, de segunda a sábado.", 
-                "Estamos abertos das 8 às 18!"],
     "endereço": ["Estamos localizados no centro da cidade.", 
                  "Nossa loja fica próximo à praça principal!"],
     "pagamento": ["Aceitamos PIX, cartão e dinheiro.", 
@@ -60,6 +64,14 @@ regras = {
 
 
 # ---------------------------
+# FUNÇÃO: pegar hora atual
+# ---------------------------
+def pegar_hora():
+    agora = datetime.now().strftime("%H:%M")
+    return f"Agora são {agora}."
+
+
+# ---------------------------
 # FUNÇÃO: procurar palavra-chave
 # ---------------------------
 def encontrar_resposta(mensagem):
@@ -67,9 +79,13 @@ def encontrar_resposta(mensagem):
 
     for chave in regras:
         if chave in mensagem:
+            # Se a palavra-chave for sobre horas, retorna a hora real
+            if chave in ["hora", "horas", "que horas são"]:
+                return pegar_hora()
+
             return random.choice(regras[chave])
 
-    return None   # não encontrou
+    return None
 
 
 # ---------------------------
@@ -94,6 +110,6 @@ def iniciar_chatbot():
 
 
 # ---------------------------
-# EXECUTAR O CHATBOT
+# EXECUÇÃO
 # ---------------------------
 iniciar_chatbot()
