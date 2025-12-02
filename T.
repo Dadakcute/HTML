@@ -1,22 +1,99 @@
-if "aposta" in mensagem or "jogo" in mensagem or "jogar" in mensagem:
-    return jogo_aposta()
-def encontrar_resposta(mensagem):
-    mensagem = mensagem.lower()
+import random
 
-    # Tenta resolver expressões matemáticas
-    res = resolver_expressao(mensagem)
-    if res:
-        return res
+# -------------------------------------------
+# MINI JOGO DE APOSTA (BLOCO SEPARADO)
+# -------------------------------------------
 
-    # Chama o mini jogo
-    if "aposta" in mensagem or "jogo" in mensagem or "jogar" in mensagem:
-        return jogo_aposta()
+saldo = 100  # saldo inicial
 
-    # Procura palavras-chave normais
-    for chave in regras:
-        if chave in mensagem:
-            if chave in ["hora", "horas", "que horas são"]:
-                return pegar_hora()
-            return random.choice(regras[chave])
+def jogo_aposta():
+    global saldo
 
-    return None
+    print("\n🎲 Bem-vindo ao mini jogo de apostas!")
+    print(f"💰 Seu saldo atual: R$ {saldo}")
+    print("Escolha um jogo:")
+    print("1 - Par ou Ímpar")
+    print("2 - Cara ou Coroa")
+    print("3 - Número da sorte (1 a 5)")
+    print("0 - Sair do jogo")
+
+    escolha = input("Opção: ")
+
+    if escolha == "0":
+        return "Saindo do jogo..."
+
+    if escolha not in ["1", "2", "3"]:
+        return "Opção inválida!"
+
+    # PEGAR VALOR DA APOSTA
+    try:
+        aposta = float(input("Digite o valor da aposta: R$ "))
+    except:
+        return "Valor inválido."
+
+    if aposta <= 0:
+        return "A aposta deve ser um valor positivo!"
+
+    if aposta > saldo:
+        return "Saldo insuficiente!"
+
+    # ------------------------------
+    # 1. PAR OU ÍMPAR
+    # ------------------------------
+    if escolha == "1":
+        palpite = input("Par ou Ímpar? (p/i): ").lower()
+        if palpite not in ["p", "i"]:
+            return "Escolha inválida!"
+
+        num = random.randint(0, 10)
+        resultado = "p" if num % 2 == 0 else "i"
+
+        print(f"Número sorteado: {num}")
+
+        if palpite == resultado:
+            saldo += aposta
+            return f"🎉 Você ganhou! Novo saldo: R$ {saldo}"
+        else:
+            saldo -= aposta
+            return f"❌ Você perdeu! Novo saldo: R$ {saldo}"
+
+    # ------------------------------
+    # 2. CARA OU COROA
+    # ------------------------------
+    if escolha == "2":
+        palpite = input("Cara ou Coroa? (c/r): ").lower()
+        if palpite not in ["c", "r"]:
+            return "Escolha inválida!"
+
+        resultado = random.choice(["c", "r"])
+
+        print("Resultado:", "Cara" if resultado == "c" else "Coroa")
+
+        if palpite == resultado:
+            saldo += aposta
+            return f"🎉 Você ganhou! Novo saldo: R$ {saldo}"
+        else:
+            saldo -= aposta
+            return f"❌ Você perdeu! Novo saldo: R$ {saldo}"
+
+    # ------------------------------
+    # 3. NÚMERO DA SORTE
+    # ------------------------------
+    if escolha == "3":
+        try:
+            numero = int(input("Escolha um número de 1 a 5: "))
+        except:
+            return "Número inválido!"
+
+        if numero < 1 or numero > 5:
+            return "Número fora do intervalo!"
+
+        sorteado = random.randint(1, 5)
+        print(f"Número sorteado: {sorteado}")
+
+        if numero == sorteado:
+            saldo += aposta * 4  # prêmio alto
+            return f"🎉 Acertou! Ganhou x4! Novo saldo: R$ {saldo}"
+        else:
+            saldo -= aposta
+            return f"❌ Não foi dessa vez... Novo saldo: R$ {saldo}"
