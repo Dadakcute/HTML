@@ -1,62 +1,107 @@
-# ================================
-# MINI JOGO DE APOSTAS (COM SALDO)
-# ================================
+import random
 
-saldo = 100  # saldo inicial (pode mudar)
+saldo = 100  # saldo inicial
 
-def jogar_apostas():
+def jogo_aposta():
     global saldo
-    print("\n🎰 Bem-vindo ao Mini Jogo de Apostas!")
-    print("Seu saldo inicial é:", saldo)
 
-    while True:   # ← agora o MENU fica rodando até o jogador sair
-        print("\n===== MENU DE APOSTAS =====")
-        print("1 - Fazer aposta")
-        print("2 - Ver saldo")
-        print("3 - Sair das apostas")
+    while True:  # mantém o jogador dentro do jogo até ele sair
+        print("\n🎲 Bem-vindo ao mini jogo de apostas!")
+        print(f"💰 Seu saldo atual: R$ {saldo}")
+        print("Escolha um jogo:")
+        print("1 - Par ou Ímpar")
+        print("2 - Cara ou Coroa")
+        print("3 - Número da sorte (1 a 5)")
+        print("0 - Sair do jogo")
 
-        opc = input("> ")
+        escolha = input("Opção: ")
 
-        # ----------------------------------
-        # OPÇÃO 1: apostando
-        # ----------------------------------
-        if opc == "1":
-            try:
-                valor = float(input("Quanto deseja apostar? R$ "))
-            except:
-                print("Valor inválido.")
+        if escolha == "0":
+            return "Saindo do jogo de apostas..."
+
+        if escolha not in ["1", "2", "3"]:
+            print("Opção inválida!")
+            continue
+
+        # PEGAR VALOR DA APOSTA
+        try:
+            aposta = float(input("Digite o valor da aposta: R$ "))
+        except:
+            print("Valor inválido.")
+            continue
+
+        if aposta <= 0:
+            print("A aposta deve ser um valor positivo!")
+            continue
+
+        if aposta > saldo:
+            print("Saldo insuficiente!")
+            continue
+
+        # ------------------------------
+        # 1. PAR OU ÍMPAR
+        # ------------------------------
+        if escolha == "1":
+            palpite = input("Par ou Ímpar? (p/i): ").lower()
+            if palpite not in ["p", "i"]:
+                print("Escolha inválida!")
                 continue
 
-            if valor <= 0:
-                print("Valor inválido.")
-                continue
+            num = random.randint(0, 10)
+            resultado = "p" if num % 2 == 0 else "i"
 
-            if valor > saldo:
-                print("❌ Saldo insuficiente!")
-                continue
+            print(f"Número sorteado: {num}")
 
-            import random
-            resultado = random.choice(["ganhou", "perdeu"])
-
-            if resultado == "ganhou":
-                saldo += valor
+            if palpite == resultado:
+                saldo += aposta
                 print(f"🎉 Você ganhou! Novo saldo: R$ {saldo}")
             else:
-                saldo -= valor
-                print(f"💸 Você perdeu! Novo saldo: R$ {saldo}")
+                saldo -= aposta
+                print(f"❌ Você perdeu! Novo saldo: R$ {saldo}")
 
-        # ----------------------------------
-        # OPÇÃO 2: ver saldo
-        # ----------------------------------
-        elif opc == "2":
-            print(f"💰 Seu saldo atual é: R$ {saldo}")
+        # ------------------------------
+        # 2. CARA OU COROA
+        # ------------------------------
+        if escolha == "2":
+            palpite = input("Cara ou Coroa? (c/r): ").lower()
+            if palpite not in ["c", "r"]:
+                print("Escolha inválida!")
+                continue
 
-        # ----------------------------------
-        # OPÇÃO 3: sair
-        # ----------------------------------
-        elif opc == "3":
-            print("Saindo das apostas...\n")
-            break    # ← O ÚNICO break, agora só sai quando o jogador quiser
+            resultado = random.choice(["c", "r"])
 
-        else:
-            print("Opção inválida! Tente novamente.")
+            print("Resultado:", "Cara" if resultado == "c" else "Coroa")
+
+            if palpite == resultado:
+                saldo += aposta
+                print(f"🎉 Você ganhou! Novo saldo: R$ {saldo}")
+            else:
+                saldo -= aposta
+                print(f"❌ Você perdeu! Novo saldo: R$ {saldo}")
+
+        # ------------------------------
+        # 3. NÚMERO DA SORTE
+        # ------------------------------
+        if escolha == "3":
+            try:
+                numero = int(input("Escolha um número de 1 a 5: "))
+            except:
+                print("Número inválido!")
+                continue
+
+            if numero < 1 or numero > 5:
+                print("Número fora do intervalo!")
+                continue
+
+            sorteado = random.randint(1, 5)
+            print(f"Número sorteado: {sorteado}")
+
+            if numero == sorteado:
+                saldo += aposta * 4
+                print(f"🎉 Acertou! Ganhou x4! Novo saldo: R$ {saldo}")
+            else:
+                saldo -= aposta
+                print(f"❌ Não foi dessa vez... Novo saldo: R$ {saldo}")
+
+        # volta automaticamente ao menu
+        print("\nRetornando ao menu...\n")
