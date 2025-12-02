@@ -1,0 +1,51 @@
+import random
+
+# ---------------------------
+# DICIONÁRIO DE REGRAS
+# ---------------------------
+regras = {
+    "olá": ["Olá! Como posso ajudar?", "Oi! Tudo bem?"],
+    "preço": ["Os preços variam conforme o produto.", "Temos opções a partir de R$10."],
+    "horário": ["Funcionamos das 8h às 18h.", "Estamos abertos de segunda a sábado!"],
+    "ajuda": ["Claro! Em que posso ajudar?"]
+}
+
+
+# ---------------------------
+# FUNÇÃO: procurar palavra-chave
+# ---------------------------
+def encontrar_resposta(mensagem):
+    mensagem = mensagem.lower()
+
+    for chave in regras:
+        if chave in mensagem:
+            return random.choice(regras[chave])
+
+    return None   # não encontrou
+
+
+# ---------------------------
+# FUNÇÃO: iniciar o chatbot
+# ---------------------------
+def iniciar_chatbot():
+    print("Chatbot iniciado! Digite 'sair' para encerrar.\n")
+
+    while True:
+        mensagem = input("Você: ")
+
+        if mensagem.lower() == "sair":
+            print("Chatbot: Até logo!")
+            break
+
+        resposta = encontrar_resposta(mensagem)
+
+        if resposta:
+            print("Chatbot:", resposta)
+        else:
+            print("Chatbot: Desculpe, não entendi.")
+
+
+# ---------------------------
+# EXECUTAR O CHATBOT
+# ---------------------------
+iniciar_chatbot()
