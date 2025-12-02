@@ -1,115 +1,22 @@
-import random
-from datetime import datetime
-
-# ---------------------------
-# DICIONÁRIO DE REGRAS
-# ---------------------------
-regras = {
-    # SAUDAÇÕES
-    "olá": ["Olá! Como posso ajudar?", "Oi! Tudo bem por aí?"],
-    "oi": ["Oi! Como posso ajudar?", "Olá!"],
-    "bom dia": ["Bom dia! 😊", "Bom dia! Como vai?"],
-    "boa tarde": ["Boa tarde! 😃", "Boa tarde! Tudo certo?"],
-    "boa noite": ["Boa noite! 🌙", "Boa noite! Precisando de algo?"],
-
-    # DESPEDIDAS
-    "tchau": ["Até mais! 👋", "Tchau! Volte sempre!"],
-    "até logo": ["Até logo!", "Volte sempre!"],
-    "valeu": ["Valeu! Qualquer coisa tô por aqui!", "Tamo junto!"],
-
-    # INFORMAÇÕES
-    # ---- AQUI TROCAMOS O 'horário' ----
-    "hora": ["Vou ver aqui...", "Claro! Olhando agora..."],
-    "horas": ["Vou ver aqui...", "Claro! Olhando agora..."],
-    "que horas são": ["Um momento, verificando...", "Deixa eu ver..."],
-
-    "preço": ["Nossos preços variam por produto. Quer algo específico?", 
-              "Temos opções a partir de R$10."],
-    "endereço": ["Estamos localizados no centro da cidade.", 
-                 "Nossa loja fica próximo à praça principal!"],
-    "pagamento": ["Aceitamos PIX, cartão e dinheiro.", 
-                  "Pode pagar com PIX, crédito ou débito."],
-    "entrega": ["Fazemos entregas na região!", 
-                "Sim, entregamos! Qual o seu endereço?"],
-
-    # SUPORTE / AJUDA
-    "ajuda": ["Claro! O que você precisa?", "Pode falar, estou aqui para ajudar!"],
-    "erro": ["Hmm… parece que houve um erro. Pode me explicar melhor?", 
-             "Ops! Vamos resolver isso juntos."],
-    "não funciona": ["Entendi! Pode me dizer exatamente o que aconteceu?", 
-                     "Ok, vamos descobrir o problema."],
-
-    # HUMOR
-    "piada": ["Por que o livro foi ao médico? Porque ele estava com muitas histórias! 😂",
-              "O que o zero disse para o oito? Belo cinto! 😆"],
-    "engraçado": ["Hahaha 😄", "😂😂😂"],
-
-    # RECLAMAÇÕES
-    "reclamar": ["Sinto muito por isso. Pode me dizer o que aconteceu?",
-                 "Vamos tentar resolver! Me explique melhor."],
-    "ruim": ["Poxa… me conte o que não gostou.", 
-             "Vamos melhorar! O que aconteceu?"],
-
-    # SENTIMENTOS
-    "triste": ["Sinto muito que esteja assim 😔. Quer conversar?", 
-               "Se quiser desabafar, estou aqui."],
-    "feliz": ["Que bom! Fico feliz também 😄", 
-              "Adoro boas notícias!"],
-
-    # OUTROS
-    "nome": ["Eu sou um chatbot simples, mas prometo ajudar! 😊"],
-    "quem é você": ["Sou um chatbot baseado em regras!"],
-    "obrigado": ["De nada! 😊", "Sempre à disposição!"],
-}
-
-
-# ---------------------------
-# FUNÇÃO: pegar hora atual
-# ---------------------------
-def pegar_hora():
-    agora = datetime.now().strftime("%H:%M")
-    return f"Agora são {agora}."
-
-
-# ---------------------------
-# FUNÇÃO: procurar palavra-chave
-# ---------------------------
+if "aposta" in mensagem or "jogo" in mensagem or "jogar" in mensagem:
+    return jogo_aposta()
 def encontrar_resposta(mensagem):
     mensagem = mensagem.lower()
 
+    # Tenta resolver expressões matemáticas
+    res = resolver_expressao(mensagem)
+    if res:
+        return res
+
+    # Chama o mini jogo
+    if "aposta" in mensagem or "jogo" in mensagem or "jogar" in mensagem:
+        return jogo_aposta()
+
+    # Procura palavras-chave normais
     for chave in regras:
         if chave in mensagem:
-            # Se a palavra-chave for sobre horas, retorna a hora real
             if chave in ["hora", "horas", "que horas são"]:
                 return pegar_hora()
-
             return random.choice(regras[chave])
 
     return None
-
-
-# ---------------------------
-# FUNÇÃO: iniciar o chatbot
-# ---------------------------
-def iniciar_chatbot():
-    print("Chatbot iniciado! Digite 'sair' para encerrar.\n")
-
-    while True:
-        mensagem = input("Você: ")
-
-        if mensagem.lower() == "sair":
-            print("Chatbot: Até logo!")
-            break
-
-        resposta = encontrar_resposta(mensagem)
-
-        if resposta:
-            print("Chatbot:", resposta)
-        else:
-            print("Chatbot: Desculpe, não entendi.")
-
-
-# ---------------------------
-# EXECUÇÃO
-# ---------------------------
-iniciar_chatbot()
