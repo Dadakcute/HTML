@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="media"></p>
+
+<script>
+let notas = [7.5, 8.0, 6.5, 9.0, 10.0];
+
+let soma = 0;
+
+for(let i = 0; i < notas.length; i++) {
+    soma += notas[i];
+}
+
+let media = soma / notas.length;
+
+document.getElementById("media").innerText =
+    "Média: " + media;
+</script>
+
+</body>
+</html>

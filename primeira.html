@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<ul id="lista"></ul>
+<p id="quantidade"></p>
+
+<script>
+let alunos = ["Ana", "Bruno", "Carlos", "Daniel", "Eduarda"];
+
+let lista = document.getElementById("lista");
+
+for(let i = 0; i < alunos.length; i++) {
+    lista.innerHTML += `<li>${alunos[i]}</li>`;
+}
+
+document.getElementById("quantidade").innerText =
+    "Quantidade de alunos: " + alunos.length;
+</script>
+
+</body>
+</html>
